@@ -1,0 +1,20 @@
+{
+  "name": "ducky-mono",
+  "version": "1.0.0",
+  "description": "DuckyBot mono repo for Twitch chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesdollar/ducky-mono.git"
+  },
+  "author": "Wes Dollar @ DollarDojo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wesdollar/ducky-mono/issues"
+  },
+  "homepage": "https://github.com/wesdollar/ducky-mono#readme",
+  "workspaces": []
+}
