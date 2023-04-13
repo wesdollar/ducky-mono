@@ -16,5 +16,9 @@
     "url": "https://github.com/wesdollar/ducky-mono/issues"
   },
   "homepage": "https://github.com/wesdollar/ducky-mono#readme",
-  "workspaces": []
+  "workspaces": [
+    "packages/ducky-modules",
+    "packages/ducky-bot-dashboard",
+    "packages/ducky-bot-server"
+  ]
 }
