@@ -1,0 +1,14 @@
+{
+  "name": "ducky",
+  "version": "1.0.0",
+  "description": "Ducky CLI tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Wes Dollar @ DollarDojo",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^10.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "ducky-bot-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard for DuckyBot the Twitch bot for DollarDojo",
+  "main": "index.html",
+  "author": "Wes Dollar @ DollarDojo",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "eslint": "eslint src/ --ext .js,.ts,.jsx,.tsx  --fix",
+    "prettier": "prettier . --write",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "dependencies": {
+    "socket.io": "^4.6.1",
+    "socket.io-client": "^4.6.1"
+  },
+  "devDependencies": {}
+}

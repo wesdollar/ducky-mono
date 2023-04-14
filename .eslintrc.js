@@ -1,14 +1,10 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   extends: [
-    "@remix-run/eslint-config",
-    "@remix-run/eslint-config/node",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "@remix-run/eslint-config",
-    "@remix-run/eslint-config/node",
   ],
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "prettier", "jest", "jsx-a11y"],
@@ -25,9 +21,6 @@ module.exports = {
       jsx: true,
     },
     sourceType: "module",
-  },
-  globals: {
-    strapi: true,
   },
   rules: {
     "@typescript-eslint/ban-ts-comment": [

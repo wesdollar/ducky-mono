@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": "packages",
     "outDir": "dist",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -15,5 +15,5 @@
     "skipLibCheck": true,
     "allowJs": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["packages/**/*.ts"]
 }

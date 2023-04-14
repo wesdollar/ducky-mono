@@ -1,0 +1,26 @@
+{
+  "name": "ducky-modules",
+  "version": "1.0.0",
+  "description": "Shared modules for DollarDojo Twitch bot",
+  "author": "Wes Dollar @ DollarDojo",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "eslint": "eslint src --ext .ts",
+    "eslint:fix": "eslint src --ext .ts --fix",
+    "jest": "jest",
+    "prettier": "prettier --write src/**/*.{ts,js}",
+    "start": "node dist/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "files": [
+    "./**/*.d.ts",
+    "!node_modules",
+    "./**/*.ts"
+  ]
+}

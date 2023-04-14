@@ -1,0 +1,31 @@
+{
+  "name": "ducky-bot-server",
+  "version": "1.0.0",
+  "description": "Server for DuckyBot the DollarDojo Twitch bot",
+  "main": "dist/server.js",
+  "author": "Wes Dollar @ DollarDojo",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon src/server.ts",
+    "eslint": "eslint src --ext .ts",
+    "eslint:fix": "eslint src --ext .ts --fix",
+    "jest": "jest",
+    "prettier": "prettier --write src/**/*.{ts,js}",
+    "start": "node dist/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "node-cache": "^5.1.2",
+    "socket.io": "^4.6.1",
+    "tmi.js": "^1.8.5",
+    "websocket": "^1.0.34",
+    "ws": "^8.13.0"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  }
+}
