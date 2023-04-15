@@ -1,0 +1,13 @@
+{
+  "name": "ducky-merch-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.ts",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "test": "test"
+  },
+  "author": "Wes Dollar @ DollarDojo",
+  "license": "MIT"
+}

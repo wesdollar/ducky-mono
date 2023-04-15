@@ -21,7 +21,8 @@
     "davidanson.vscode-markdownlint",
     "bungcip.better-toml",
     "ms-vsliveshare.vsliveshare",
-    "prisma.prisma"
+    "prisma.prisma",
+    "quicktype.quicktype"
   ],
   "unwantedRecommendations": []
 }

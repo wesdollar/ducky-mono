@@ -1,7 +1,7 @@
 import type { Config } from "@jest/types";
 
 const config: Config.InitialOptions = {
-  roots: ["src"],
+  roots: ["packages"],
   setupFiles: ["dotenv-flow/config"],
   testEnvironment: "node",
 };
