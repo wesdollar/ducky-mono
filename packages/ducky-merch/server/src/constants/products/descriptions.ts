@@ -1,4 +1,8 @@
-export const descriptions = {
+interface Descriptions {
+  [key: string]: string;
+}
+
+export const descriptions: Descriptions = {
   "305549824":
     "This soft and comfortable t-shirt features our beloved mascot Ducky, with his wings outstretched and a mischievous glint in his eye. Available in a range of sizes, it's the perfect way to show your love for Ducky and DollarDojo.",
   "305549860":

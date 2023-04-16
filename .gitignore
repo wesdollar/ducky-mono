@@ -17,3 +17,4 @@ dist
 
 !packages/ducky-modules/dist/package.json
 !packages/ducky-modules/dist/README.md
+generate-types.json

@@ -12,10 +12,9 @@ import { uniqueId } from "lodash";
 import { Spacer } from "../../components/utilities/spacer/spacer";
 import { Header } from "../../components/header/header";
 import axios from "axios";
-import { PrintfulResponse } from "../../types/printful/products";
+import { PrintfulProductsResponse } from "../../types/printful/products";
 import { ProductSkeleton } from "../../components/products/product-skeleton/product-skeleton";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { descriptions } from "../../constants/products/descriptions";
 
 const getProducts = async () => {
   try {
@@ -25,8 +24,6 @@ const getProducts = async () => {
 
     return products.data;
   } catch (error) {
-    console.log(error);
-
     return { errorStatus: true, error };
   }
 };
@@ -40,13 +37,11 @@ export const loader = async () => {
 export const Products = () => {
   const navigate = useNavigate();
   const handleOnClick = (id: number) => navigate(`/products/${id}`);
+  const data = useLoaderData() as PrintfulProductsResponse;
 
-  // @ts-ignore go away
-  const data: PrintfulResponse = useLoaderData();
-
-  const { result: products } = data;
-
-  console.log(products);
+  const {
+    result: { sync_product: products },
+  } = data;
 
   return (
     <Box margin={"space100"}>
@@ -66,9 +61,6 @@ export const Products = () => {
       ) : (
         <Grid key={uniqueId()} gutter={"space60"}>
           {products.map((product) => {
-            // @ts-ignore TODO: come back
-            const productDescription = descriptions[product.id];
-
             return (
               <Column span={4} key={uniqueId()}>
                 <Stack orientation={"vertical"} spacing={"space60"}>
@@ -89,7 +81,7 @@ export const Products = () => {
                       />
                     </Box>
                     <Box marginBottom={"space80"}>
-                      <Paragraph>{productDescription}</Paragraph>
+                      <Paragraph>{product.description}</Paragraph>
                     </Box>
                     <Spacer height={["30px", "30px", "30px"]} />
                     <Box marginBottom={"space80"}>

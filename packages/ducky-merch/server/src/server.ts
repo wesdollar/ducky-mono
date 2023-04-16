@@ -4,6 +4,8 @@ import * as dotenv from "dotenv-flow";
 import bodyParser from "body-parser";
 import axios from "axios";
 import { syncProduct } from "./data-transformer/products/sync-product/sync-product";
+import { PrintfulProductResponse } from "./types/printful/products";
+import { descriptions } from "./constants/products/descriptions";
 
 dotenv.config({
   path: process.cwd(),
@@ -35,14 +37,39 @@ app.get("/", (req, res) => {
 
 app.get("/api/printful/products", async (req, res) => {
   try {
-    const products = await axios.get(`${printfulApiUrl}/store/products`, {
-      headers: printfulHeaders,
-    });
+    const printfulProductResponse = await axios.get(
+      `${printfulApiUrl}/store/products`,
+      {
+        headers: printfulHeaders,
+      }
+    );
 
-    return res.json(products.data);
+    const products = printfulProductResponse.data.result;
+
+    const modifiedProducts = [];
+
+    for (const product of products) {
+      const description = descriptions[product.id];
+
+      const newObject = {
+        ...product,
+        description,
+      };
+
+      modifiedProducts.push(newObject);
+    }
+
+    const responseObject: PrintfulProductResponse = {
+      code: printfulProductResponse.data.code,
+      result: {
+        sync_product: [...modifiedProducts],
+        sync_variants: printfulProductResponse.data.result.sync_variants,
+      },
+      extra: printfulProductResponse.data.extra,
+    };
+
+    return res.json(responseObject);
   } catch (error) {
-    console.log(JSON.stringify(error, null, 2));
-
     return res.status(500).json({ error: "you broke it" });
   }
 });
@@ -55,7 +82,6 @@ app.get("/api/printful/products/:id", async (req, res) => {
       headers: printfulHeaders,
     });
 
-    // @ts-ignore COME BACK
     const response = syncProduct(data);
 
     return res.json(response);
@@ -79,8 +105,6 @@ app.get("/api/printful/products/variants/:variantId", async (req, res) => {
 
     return res.json(variants.data);
   } catch (error) {
-    console.log(JSON.stringify(error, null, 2));
-
     return res.status(500).json({ error: "you broke it" });
   }
 });

@@ -27,12 +27,13 @@ export interface PrintfulSyncProduct {
   synced: number;
   thumbnail_url: string;
   is_ignored: boolean;
+  description?: string;
 }
 
 export interface PrintfulProductResponse {
   code: number;
   result: {
-    sync_product: PrintfulSyncProduct;
+    sync_product: PrintfulSyncProduct[];
     sync_variants: {
       id: number;
       external_id: string;
@@ -123,3 +124,12 @@ export interface SyncVariant {
 }
 
 export type SyncVariants = SyncVariant[];
+
+export interface ProductVariants {
+  variantId: number;
+  retailPrice: string;
+  sku: string;
+  previewImage: string;
+  size: string;
+  color: string;
+}
